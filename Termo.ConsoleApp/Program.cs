@@ -27,6 +27,15 @@ class Program
         };
 
         int numeroAleatorio = RandomNumberGenerator.GetInt32(palavras.Length);
+
+        string palavraAleatorio = palavras[numeroAleatorio];
+
+        System.Console.WriteLine($"Palavra sorteada foi {palavraAleatorio}");
+
+        while (true)
+        {
+            
+        }
           
     }
 }
