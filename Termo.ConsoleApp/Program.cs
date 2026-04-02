@@ -58,9 +58,9 @@ class Program
                         Console.ForegroundColor = ConsoleColor.Green;
                     }
 
-                    else if (palavraDigitada != palavraAleatoria)
+                    else
                     {
-                        
+
                         for (letrasCorretas = 0; letrasCorretas < palavraAleatoria.Length; letrasCorretas++)
                         {
                             if (palavraDigitada[caractere] == palavraAleatoria[letrasCorretas])
@@ -69,17 +69,16 @@ class Program
                                 break;
                             }
                         }   
-                    }
 
-                    else
-                    {
-                        Console.ForegroundColor = ConsoleColor.DarkGray;
+                        if(letrasCorretas == palavraAleatoria.Length)
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkGray;
+                        }                
                     }
-
-                    Console.Write(palavraDigitada[caractere] + " ");
+                Console.Write(palavraDigitada[caractere] + " ");
                 }                                       
             }   
-       Thread.Sleep(1000);
+        Thread.Sleep(1000);
         }          
     }
 }
