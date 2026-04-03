@@ -22,10 +22,9 @@ class Program
         System.Console.Write("M");
         Thread.Sleep(500);
         Console.ForegroundColor = ConsoleColor.Yellow;
-        System.Console.Write("O");
+        System.Console.WriteLine("O");
         Thread.Sleep(500);
         Console.ResetColor();
-        System.Console.WriteLine(" - 5 LETRAS");
         System.Console.WriteLine("-------------------------------------");
         Thread.Sleep(500);
 
@@ -45,6 +44,29 @@ class Program
             "arder"*/
         };
 
+        System.Console.WriteLine("REGRAS");
+        System.Console.WriteLine("1 - Descubra a palavra certa em 5 tentativas");
+
+        System.Console.Write("2 - A letra na cor '");
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
+        System.Console.Write("A");
+        Console.ResetColor();
+        System.Console.WriteLine("' informa que a letra está na posição correta.");
+
+        System.Console.Write("3 - A letra na cor '");
+        Console.ForegroundColor = ConsoleColor.DarkYellow;
+        System.Console.Write("B");
+        Console.ResetColor();
+        System.Console.WriteLine("' informa que a letra existe na palavra, mas em outra posição.");
+
+        System.Console.Write("4 - A letra na cor '");
+        Console.ForegroundColor = ConsoleColor.DarkGray;
+        System.Console.Write("C");
+        Console.ResetColor();
+        System.Console.WriteLine("' informa que a letra não faz parte da palavra.");
+
+        System.Console.WriteLine("5 - As palavras podem conter letras repetidas.");
+
         int numeroAleatorio = RandomNumberGenerator.GetInt32(palavras.Length);
 
         string palavraAleatoria = palavras[numeroAleatorio];
@@ -55,6 +77,7 @@ class Program
         {
             contador++;  
             Console.ResetColor();
+            System.Console.WriteLine("-------------------------------------");
             System.Console.WriteLine($"Iniciando a rodada {contador}");
             System.Console.WriteLine("Digite uma palavra: ");
             string? palavraDigitada = Console.ReadLine();
