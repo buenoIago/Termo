@@ -71,14 +71,15 @@ class Program
 
         string palavraAleatoria = palavras[numeroAleatorio];
 
-        int contador = 0;
+        int numeroRodadas = 0;
+        int quantidadeErros = 0;
 
         while (true)
         {
-            contador++;  
+            numeroRodadas++;  
             Console.ResetColor();
             System.Console.WriteLine("-------------------------------------");
-            System.Console.WriteLine($"Iniciando a rodada {contador}");
+            System.Console.WriteLine($"Iniciando a rodada {numeroRodadas}");
             System.Console.WriteLine("Digite uma palavra: ");
             string? palavraDigitada = Console.ReadLine();
 
@@ -117,21 +118,9 @@ class Program
 
                 }                                       
             } 
-            
-            Console.ResetColor();  
 
-            if(contador == 5)
-            {
-                System.Console.WriteLine();
-                System.Console.WriteLine("-------------------------------------");
-                System.Console.WriteLine("FIM DE JOGO!");
-                System.Console.WriteLine("Que pena :( Você usou todas as suas chances!");
-                System.Console.WriteLine("-------------------------------------");
-                break;
-            }
- 
-            Thread.Sleep(1000);
-            Console.WriteLine();
+            quantidadeErros++;
+            Console.ResetColor();  
 
             if (palavraDigitada == palavraAleatoria)
             {
@@ -143,7 +132,23 @@ class Program
                 System.Console.WriteLine("-------------------------------------");
                 System.Console.WriteLine("Pressione ENTER para continuar");
                 Console.ReadLine();
-            }       
+            } 
+
+            if(quantidadeErros == 5)
+            {
+                System.Console.WriteLine();
+                System.Console.WriteLine("-------------------------------------");
+                System.Console.WriteLine("FIM DE JOGO!");
+                System.Console.WriteLine("Que pena :( Você usou todas as suas chances!");
+                System.Console.WriteLine("-------------------------------------");
+                System.Console.WriteLine("Pressione ENTER para continuar");
+                Console.ReadLine();
+                return;
+            }
+          
+            Thread.Sleep(1000);
+            Console.WriteLine();
+      
         }
     }
 }   
