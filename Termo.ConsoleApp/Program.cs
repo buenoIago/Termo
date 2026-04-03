@@ -11,23 +11,17 @@ class Program
         {
             Cabecalho.ExibirCabecalho();
 
-            Jogo.nRodadas++;  
-            Console.ResetColor();
-            System.Console.WriteLine("-------------------------------------");
-            System.Console.WriteLine($"Iniciando a rodada {Jogo.nRodadas}");
-            System.Console.WriteLine("Digite uma palavra: ");
-            Jogo.palavraDigitada = Console.ReadLine();
-    
             Jogo.JogoEmAndamento();
-    
+
             if (!JogadorDesejaContinuar())
             {
                 System.Console.WriteLine("Encerrando o jogo...");
                 Thread.Sleep(1000);
+                break;
             }
-        }
-        
+        }       
     }
+    
     static bool JogadorDesejaContinuar()
     {
         Console.Write("Deseja continuar o jogo? (s/N): ");

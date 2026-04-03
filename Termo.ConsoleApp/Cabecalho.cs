@@ -23,24 +23,30 @@ class Cabecalho
         System.Console.WriteLine("-------------------------------------");
         Thread.Sleep(500);
 
-        System.Console.WriteLine("Menu de opções\n1 - Iniciar Jogo\n2 - Regras");
-        System.Console.Write("Digite sua escolha: ");
-        int opcao = Convert.ToInt32(Console.ReadLine());
-
-        switch (opcao)
+        while (true)
         {
-            case 1: 
-            break;
+            System.Console.WriteLine("Menu de opções\n1 - Iniciar Jogo\n2 - Regras");
+            System.Console.Write("Digite sua escolha: ");
+            int opcao = Convert.ToInt32(Console.ReadLine());
 
-            case 2:
-            Regras();
-            return;
+            switch (opcao)
+            {
+                case 1:
+                return;
 
-            default:
-            return;
-        }
+                case 2:
+                Regras();
+                break;
+
+                default:
+                Console.WriteLine("Selecione uma escolha válida.");
+                Console.WriteLine("Clique ENTER para continuar...");
+                Console.ReadLine();
+                break;
+            }
+        }        
     }
-            
+          
     public static void Regras()
     {
         System.Console.WriteLine("\nREGRAS");

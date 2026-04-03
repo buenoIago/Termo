@@ -2,20 +2,8 @@ using System.Security.Cryptography;
 
 class Jogo
 {
-    public static string[] palavras = {
-    "beber", "abrir", "andar",
-    "dizer", "fazer", /*"olhar",
-    "ouvir", "pedir", "parar", "pegar",
-    "jogar", "viver", "lutar", "nadar",
-    "tocar", "temer", "saber",
-    "poder", "caber", "haver", "medir",
-    "subir", "valer", "bater",
-    "mexer", "lavar", "secar", "colar",
-    "remar", "rezar", "rolar", "morar",
-    "dotar", "notar", "lotar", "botar",
-    "tirar", "gerar", "negar", "jurar",
-    "calar", "selar", "gelar", "velar",
-    "arder"*/
+    public static string[] palavras = { 
+    "dizer", "fazer", "olhar","pedir", "lutar",
     };
 
     public static int nRodadas = 0;
@@ -35,6 +23,13 @@ class Jogo
     {
         while (true)
         {
+            nRodadas++;  
+            Console.ResetColor();
+            System.Console.WriteLine("-------------------------------------");
+            System.Console.WriteLine($"Iniciando a rodada {nRodadas}");
+            System.Console.WriteLine("Digite uma palavra: ");
+            palavraDigitada = Console.ReadLine(); 
+
             char[] letrasAcertadas = new char[palavraAleatoria.Length];
 
             for (int caractere = 0; caractere < palavraAleatoria.Length; caractere++)
@@ -70,12 +65,15 @@ class Jogo
 
                 } 
             }
-
+            
+            System.Console.WriteLine();
             qtdErros++;
             Console.ResetColor();  
 
             if (palavraDigitada == palavraAleatoria)
             {
+                nRodadas = 0;
+                qtdErros = 0;
                 System.Console.WriteLine("-------------------------------------");
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine(palavraAleatoria.ToUpper());
@@ -84,10 +82,13 @@ class Jogo
                 System.Console.WriteLine("-------------------------------------");
                 System.Console.WriteLine("Pressione ENTER para continuar");
                 Console.ReadLine();
+                return; 
             } 
 
             if(qtdErros == 5)
             {
+                nRodadas = 0;
+                qtdErros = 0;
                 System.Console.WriteLine();
                 System.Console.WriteLine("-------------------------------------");
                 System.Console.WriteLine("FIM DE JOGO!");
@@ -100,7 +101,7 @@ class Jogo
 
             Thread.Sleep(1000);
             Console.WriteLine();
-            
+
         }        
     }
 }
