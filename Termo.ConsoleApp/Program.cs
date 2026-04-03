@@ -7,148 +7,15 @@ class Program
 {
     static void Main (String[] args)
     {
-        Console.Clear();
-        System.Console.WriteLine("-------------------------------------");
-        Console.ForegroundColor = ConsoleColor.DarkCyan;
-        System.Console.Write("T");
-        Thread.Sleep(500);
-        Console.ForegroundColor = ConsoleColor.DarkMagenta;
-        System.Console.Write("E");
-        Thread.Sleep(500);
-        Console.ForegroundColor = ConsoleColor.Black;
-        System.Console.Write("R");
-        Thread.Sleep(500);
-        Console.ForegroundColor = ConsoleColor.Green;
-        System.Console.Write("M");
-        Thread.Sleep(500);
-        Console.ForegroundColor = ConsoleColor.Yellow;
-        System.Console.WriteLine("O");
-        Thread.Sleep(500);
+        Cabecalho.ExibirCabecalho();
+
+        Jogo.nRodadas++;  
         Console.ResetColor();
         System.Console.WriteLine("-------------------------------------");
-        Thread.Sleep(500);
+        System.Console.WriteLine($"Iniciando a rodada {Jogo.nRodadas}");
+        System.Console.WriteLine("Digite uma palavra: ");
+        Jogo.palavraDigitada = Console.ReadLine();
 
-        string[] palavras = {
-            "beber", "abrir", "andar",
-            "dizer", "fazer", /*"olhar",
-            "ouvir", "pedir", "parar", "pegar",
-            "jogar", "viver", "lutar", "nadar",
-            "tocar", "temer", "saber",
-            "poder", "caber", "haver", "medir",
-            "subir", "valer", "bater",
-            "mexer", "lavar", "secar", "colar",
-            "remar", "rezar", "rolar", "morar",
-            "dotar", "notar", "lotar", "botar",
-            "tirar", "gerar", "negar", "jurar",
-            "calar", "selar", "gelar", "velar",
-            "arder"*/
-        };
-
-        System.Console.WriteLine("REGRAS");
-        System.Console.WriteLine("1 - Descubra a palavra certa em 5 tentativas");
-
-        System.Console.Write("2 - A letra na cor '");
-        Console.ForegroundColor = ConsoleColor.DarkGreen;
-        System.Console.Write("A");
-        Console.ResetColor();
-        System.Console.WriteLine("' informa que a letra está na posição correta.");
-
-        System.Console.Write("3 - A letra na cor '");
-        Console.ForegroundColor = ConsoleColor.DarkYellow;
-        System.Console.Write("B");
-        Console.ResetColor();
-        System.Console.WriteLine("' informa que a letra existe na palavra, mas em outra posição.");
-
-        System.Console.Write("4 - A letra na cor '");
-        Console.ForegroundColor = ConsoleColor.DarkGray;
-        System.Console.Write("C");
-        Console.ResetColor();
-        System.Console.WriteLine("' informa que a letra não faz parte da palavra.");
-
-        System.Console.WriteLine("5 - As palavras podem conter letras repetidas.");
-
-        int numeroAleatorio = RandomNumberGenerator.GetInt32(palavras.Length);
-
-        string palavraAleatoria = palavras[numeroAleatorio];
-
-        int numeroRodadas = 0;
-        int quantidadeErros = 0;
-
-        while (true)
-        {
-            numeroRodadas++;  
-            Console.ResetColor();
-            System.Console.WriteLine("-------------------------------------");
-            System.Console.WriteLine($"Iniciando a rodada {numeroRodadas}");
-            System.Console.WriteLine("Digite uma palavra: ");
-            string? palavraDigitada = Console.ReadLine();
-
-            char[] letrasAcertadas = new char[palavraAleatoria.Length];
-
-            for (int caractere = 0; caractere < palavraAleatoria.Length; caractere++)
-            {
-                int letrasCorretas;
-
-                if (caractere < palavraDigitada?.Length) 
-                {
-                    if (palavraDigitada[caractere] == palavraAleatoria[caractere])
-                    {
-                        Console.ForegroundColor = ConsoleColor.DarkGreen;
-                    }
-
-                    else
-                    {
-
-                        for (letrasCorretas = 0; letrasCorretas < palavraAleatoria.Length; letrasCorretas++)
-                        {
-                            if (palavraDigitada[caractere] == palavraAleatoria[letrasCorretas])
-                            {
-                                Console.ForegroundColor = ConsoleColor.DarkYellow;
-                                break;
-                            }
-                        }   
-
-                        if(letrasCorretas == palavraAleatoria.Length)
-                        {
-                            Console.ForegroundColor = ConsoleColor.DarkGray;
-                        }                
-                    }
-
-                Console.Write(palavraDigitada[caractere] + " ");
-
-                }                                       
-            } 
-
-            quantidadeErros++;
-            Console.ResetColor();  
-
-            if (palavraDigitada == palavraAleatoria)
-            {
-                System.Console.WriteLine("-------------------------------------");
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(palavraAleatoria.ToUpper());
-                Console.ResetColor();
-                Console.WriteLine("Parabéns você acertou!");
-                System.Console.WriteLine("-------------------------------------");
-                System.Console.WriteLine("Pressione ENTER para continuar");
-                Console.ReadLine();
-            } 
-
-            if(quantidadeErros == 5)
-            {
-                System.Console.WriteLine();
-                System.Console.WriteLine("-------------------------------------");
-                System.Console.WriteLine("FIM DE JOGO!");
-                System.Console.WriteLine("Que pena :( Você usou todas as suas chances!");
-                System.Console.WriteLine("-------------------------------------");
-                System.Console.WriteLine("Pressione ENTER para continuar");
-                Console.ReadLine();
-                return;
-            }
-          
-            Thread.Sleep(1000);
-            Console.WriteLine();
-      
-        }
+        Jogo.JogoEmAndamento();
     }
-}   
+}
