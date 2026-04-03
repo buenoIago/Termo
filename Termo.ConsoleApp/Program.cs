@@ -27,7 +27,6 @@ class Program
         Console.ResetColor();
         System.Console.WriteLine(" - 5 LETRAS");
         System.Console.WriteLine("-------------------------------------");
-
         Thread.Sleep(500);
 
         string[] palavras = {
@@ -50,9 +49,13 @@ class Program
 
         string palavraAleatoria = palavras[numeroAleatorio];
 
+        int contador = 0;
+
         while (true)
         {
+            contador++;  
             Console.ResetColor();
+            System.Console.WriteLine($"Iniciando a rodada {contador}");
             System.Console.WriteLine("Digite uma palavra: ");
             string? palavraDigitada = Console.ReadLine();
 
@@ -86,11 +89,24 @@ class Program
                             Console.ForegroundColor = ConsoleColor.DarkGray;
                         }                
                     }
-                Console.Write(palavraDigitada[caractere] + " ");
-                }                                       
-            }  
 
-            Console.ResetColor();   
+                Console.Write(palavraDigitada[caractere] + " ");
+
+                }                                       
+            } 
+            
+            Console.ResetColor();  
+
+            if(contador == 5)
+            {
+                System.Console.WriteLine();
+                System.Console.WriteLine("-------------------------------------");
+                System.Console.WriteLine("FIM DE JOGO!");
+                System.Console.WriteLine("Que pena :( Você usou todas as suas chances!");
+                System.Console.WriteLine("-------------------------------------");
+                break;
+            }
+ 
             Thread.Sleep(1000);
             Console.WriteLine();
 
@@ -104,7 +120,7 @@ class Program
                 System.Console.WriteLine("-------------------------------------");
                 System.Console.WriteLine("Pressione ENTER para continuar");
                 Console.ReadLine();
-            }             
+            }       
         }
     }
-}
+}   
