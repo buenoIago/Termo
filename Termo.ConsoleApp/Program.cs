@@ -7,15 +7,36 @@ class Program
 {
     static void Main (String[] args)
     {
-        Cabecalho.ExibirCabecalho();
+        while (true)
+        {
+            Cabecalho.ExibirCabecalho();
 
-        Jogo.nRodadas++;  
-        Console.ResetColor();
-        System.Console.WriteLine("-------------------------------------");
-        System.Console.WriteLine($"Iniciando a rodada {Jogo.nRodadas}");
-        System.Console.WriteLine("Digite uma palavra: ");
-        Jogo.palavraDigitada = Console.ReadLine();
+            Jogo.nRodadas++;  
+            Console.ResetColor();
+            System.Console.WriteLine("-------------------------------------");
+            System.Console.WriteLine($"Iniciando a rodada {Jogo.nRodadas}");
+            System.Console.WriteLine("Digite uma palavra: ");
+            Jogo.palavraDigitada = Console.ReadLine();
+    
+            Jogo.JogoEmAndamento();
+    
+            if (!JogadorDesejaContinuar())
+            {
+                System.Console.WriteLine("Encerrando o jogo...");
+                Thread.Sleep(1000);
+            }
+        }
+        
+    }
+    static bool JogadorDesejaContinuar()
+    {
+        Console.Write("Deseja continuar o jogo? (s/N): ");
+        string? opcaoContinuar = Console.ReadLine()?.ToUpper();
 
-        Jogo.JogoEmAndamento();
+        if (opcaoContinuar != "S")
+            return false;
+
+        else
+        return true;   
     }
 }

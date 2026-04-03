@@ -23,7 +23,27 @@ class Cabecalho
         System.Console.WriteLine("-------------------------------------");
         Thread.Sleep(500);
 
-        System.Console.WriteLine("REGRAS");
+        System.Console.WriteLine("Menu de opções\n1 - Iniciar Jogo\n2 - Regras");
+        System.Console.Write("Digite sua escolha: ");
+        int opcao = Convert.ToInt32(Console.ReadLine());
+
+        switch (opcao)
+        {
+            case 1: 
+            break;
+
+            case 2:
+            Regras();
+            return;
+
+            default:
+            return;
+        }
+    }
+            
+    public static void Regras()
+    {
+        System.Console.WriteLine("\nREGRAS");
         System.Console.WriteLine("1 - Descubra a palavra certa em 5 tentativas");
 
         System.Console.Write("2 - A letra na cor '");
@@ -45,5 +65,8 @@ class Cabecalho
         System.Console.WriteLine("' informa que a letra não faz parte da palavra.");
 
         System.Console.WriteLine("5 - As palavras podem conter letras repetidas.");
-    }
+
+        System.Console.WriteLine("\nPressione ENTER para continuar");
+        Console.ReadLine();
+    }       
 }
