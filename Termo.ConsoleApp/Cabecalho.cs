@@ -10,7 +10,7 @@ class Cabecalho
         Console.ForegroundColor = ConsoleColor.DarkMagenta;
         System.Console.Write("E");
         Thread.Sleep(500);
-        Console.ForegroundColor = ConsoleColor.Black;
+        Console.ForegroundColor = ConsoleColor.DarkRed;
         System.Console.Write("R");
         Thread.Sleep(500);
         Console.ForegroundColor = ConsoleColor.Green;
