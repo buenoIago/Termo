@@ -70,9 +70,8 @@ class Cabecalho
         Console.ResetColor();
         System.Console.WriteLine("' informa que a letra não faz parte da palavra.");
 
-        System.Console.WriteLine("5 - As palavras podem conter letras repetidas.");
-
         System.Console.WriteLine("\nPressione ENTER para continuar");
+        System.Console.WriteLine("-------------------------------------");
         Console.ReadLine();
     }       
 }

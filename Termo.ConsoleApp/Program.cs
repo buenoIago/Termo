@@ -21,10 +21,10 @@ class Program
             }
         }       
     }
-    
+
     static bool JogadorDesejaContinuar()
     {
-        Console.Write("Deseja continuar o jogo? (s/N): ");
+        Console.Write("Deseja jogar novamente? (s/N): ");
         string? opcaoContinuar = Console.ReadLine()?.ToUpper();
 
         if (opcaoContinuar != "S")
