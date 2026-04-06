@@ -52,7 +52,7 @@ dotnet restore
 4. Execute o projeto:
 
 ```
-dotnet run
+dotnet run --project Termo.ConsoleApp
 ```
 
 ## REQUISITOS
