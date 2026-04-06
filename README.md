@@ -1,6 +1,6 @@
 # TERMO
 
-
+![](.docs/WindowsTerminal_k2901KlniZ.gif)
 
 ## INTRODUÇÃO
 
